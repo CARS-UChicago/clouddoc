@@ -90,10 +90,10 @@ file-sharing apps, Nextcloud has many additional features. There are
 note-taking apps, you can create links for any file to be able to share
 selected files with others, and so forth. You may some of these features
 useful, but the main point is to automatically transfer your data from the
-GSE beamline data acquisition systems to your computers. 
+GSE beamline data acquisition systems to your computers.
 
 
-Using WebDav: View remote files 
+Using WebDav: View remote files
 --------------------------------------------------------
 
 From the settings icon  |settings_icon| in the lower left, you will see a
@@ -153,6 +153,21 @@ the beamline data.
 If you want to start processing your data, please treat this beamline
 folder as the source of data from which you copy file to your own
 workspace.
+
+
+For X-ray microprobe users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The warning above to treat the `nextcloud` folder as a source for data is
+especially true for X-ray microprobe Map files, which are `HDF5` files that
+may be continually updated as the data collected.  The GSECARS MapViewer
+application will also try to write to these HDF5 map files and this can
+corrupt the files.
+
+Please avoid opening the Map HDF5 files directly from the Nextcloud
+folder!!  Copy them to a separate working directory and use them there.
+
+
 
 
 Cleaning up your data
