@@ -52,6 +52,14 @@ If you have not received such an email and would like access to the GSECARS
 Cloud Data, please ask your beamline scientist and they should be able to
 help you get access.
 
+If you would like to share the user credentials with other people in your
+group (your students or professor, for example) you can simply share this
+username and password with them and they will be able to synchronize the
+data to their computers too. To be clear, your GSECARS Nextcloud is not
+related to any other accounts and if you would like to share this account
+with others in your group, this is fine with us.
+
+
 
 The web client
 ----------------------------------------------
@@ -116,6 +124,10 @@ machine.  Each time you open a file, it will be read over the network.
 The Nextcloud App: syncing data
 --------------------------------------------------------
 
+This is the recommended way to fetch your data from GSECARS.  It is pretty
+easy to set up and will automatically and efficiently copy new data
+directly from the GSECARS data collection servers to your local computer.
+
 In order to automatically synchronize data from GSECARS to your local
 machine, you will need to download and install the Nextcloud client
 application.  These are available for all major operating systems
@@ -123,7 +135,8 @@ application.  These are available for all major operating systems
 https://nextcloud.com/install/#install-clients
 
 When you install and run this, you do not need to "Register with a
-provider", but you do need to "Log in" and provide the server address which is::
+provider", but you do need to "Log in" and provide the server address which
+is::
 
 
       https://millenia.cars.aps.anl.gov/cloud
@@ -139,35 +152,57 @@ your home folder -- will be created and start to synchronize with the files
 on the GSECARS servers.
 
 
-It is important to note that the files in the beamline data folder is read
-only.  That is, you will not be able to delete or move data on the beamline
-server.  As a consequence, you should treat this folder as a snapshot of
-the beamline data.
+How to use your GSECARS Colud Data Share
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. Note::
+Te files in the top-level Nextcloud folder have normal read/write
+permissions for your account and work like other cloud services in that
+updating a file on your local computer will push those changes "to the
+cloud" (that is, back to the GSECARS webserver) and any other folder tied
+to that account will also see those changes.  However, it is important to
+note that the files in the beamline data folder (ie, marked with
+|external_folder_icon|) are shared with you as "read only".  That is,
+although you may delete or move files in this folder on your computer,
+those changes will *not* delete or move data on the beamline server. It is
+a good idea to think of the files in this folder as a snapshot of the files
+at the beamline.
 
-   For best performance and to avoid repeated copying, do not move, delete,
-   or reorganize data within the beamline data folder until your beamtime
-   is complete and the sharing is turned off.
-
-If you want to start processing your data, please treat this beamline
-folder as the source of data from which you copy file to your own
-workspace.
-
-
-For X-ray microprobe users
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The warning above to treat the `nextcloud` folder as a source for data is
-especially true for X-ray microprobe Map files, which are `HDF5` files that
-may be continually updated as the data collected.  The GSECARS MapViewer
-application will also try to write to these HDF5 map files and this can
-corrupt the files.
-
-Please avoid opening the Map HDF5 files directly from the Nextcloud
-folder!!  Copy them to a separate working directory and use them there.
+To work effectively with these data files as they are being collected,
+there are a few things to note about how to work effectively (and
+efficiently) with these data.  First, as data is being collected, you can
+always make a copy of the data from "live data" folder to another folder of
+your using.
 
 
+The Nextcloud app on your machine simply uses the **timestamps** of files
+on the server to decide what needs to be fetched, but it also looks for
+conflicts between the "local" and the "server" versions of the file.  This
+means that if a file on the beamline data server is partially written or
+gets "updated" or "touched", the changed file *will* be pushed to your
+local computer.  Such an update can cause large-ish files to be sent more
+than once, but at least the latest version will eventually be on your
+computer.
+
+1.  If you delete a file from your local folder and it does not change on
+    the server it will not be re-copied unless you explicitly ask to resync
+    (which you can do from the Nextcloud app).
+
+2.  If you have modified a file locally and it *also* changes on the
+    server, the Nextcloud app will warn you that there is a conflict, and
+    you might end up with two copies of the file: `file.dat` as exists on
+    the server and `file (conflicted...).dat` as was modified locally.
+
+
+
+For X-ray microprobe users working with XRF maps, and GPD Users, these
+conflicts can be particularly noticeable because the HDF5 files used for
+both experimental setups are particularly prone to getting corrupted if
+multiple processes (like the "sync" process and any program you are using
+to read that file) try to write to the same file.
+
+That is, you may see corrupted HDF5 files for `GSE MapViewer` (ID-E users)
+or `Data Shell` (ID-C users).  If so, you should move the broken file out
+of the way and re-sync data from the server.
 
 
 Cleaning up your data
