@@ -96,9 +96,9 @@ servers, and this folder is where the beamline data will be found.
 From this web interface, you can download any individual file.  Like other
 file-sharing apps, Nextcloud has many additional features. There are
 note-taking apps, you can create links for any file to be able to share
-selected files with others, and so forth. You may some of these features
-useful, but the main point is to automatically transfer your data from the
-GSE beamline data acquisition systems to your computers.
+selected files with others, and so forth. You may find some of these
+features useful, but the main point is to automatically transfer your data
+from the GSE beamline data acquisition systems to your computers.
 
 
 Using WebDav: View remote files

@@ -78,8 +78,6 @@ the user to set a password as the are setting up their account.
 
 
 
-
-
 Creating a Share to cars5/Data
 -----------------------------------------
 
@@ -162,11 +160,12 @@ With this small form, you will need to set the following values:
   `xas_user` data, which uses `cars4`).
 
 
-* for **Share** you should select `CloudData`.  Note that this is a
-  Read-only version for access to the `T:/` drive (`cars5/Data`).  You can
-  also select the `Data` or `Users` share, but be careful that these are
-  normally mounted as read/write.  As you might guess, you can actually
-  share any folder on any of the hosts available from `CARS_NT_DOMAIN`.  
+* for **Share** you should select `Data_RO`.  This is a Read-only version
+  for access to the `T:/` drive (`cars5/Data`).  The software does allow
+  you to select the `Data` or `Users` share (or any other shared folder
+  from the `CARS_NT_DOMAIN`), but be careful that these would normally
+  mounted as read/write for the `CARS_NT_DOMAIN` username that you select.
+  At this, please be very careful in sharing Shares other than `Data_RO`.
 
 * for **Remote Subfolder** you should select the actual user folder for the
   beamline datat that you want to share.  This is relative to the `T:/`
@@ -176,24 +175,25 @@ With this small form, you will need to set the following values:
   `gpd_user/data/idc/2020/run2/USERNAME`.  Note that this will mean that
   only that folder (and anything in it) will be shared -- so pick the
   folder for the users' beamtime, not all of `cars5/Data/dac_user`!
-  
 
-* for **Domain**, use `CARS_NT_DOMAIN`.
+
+* for **Domain**, use `CARS_NT_DOMAIN` or `CARS.APS.ANL.GOV`.
 
 * For **Username** and **Password**, select a valid user that can read (and
-  perhaps write) to the folder you are sharing.  That could be the
-  `XXX_user` account or use the `detector` account which can read all of
-  the `Data` share.
+  perhaps write) to the folder you are sharing.  For mounting `Data_RO`,
+  that could either be the appropriate `XXX_user` account that can read
+  that folder, or the `detector` or `epics` account which can read all of
+  the `Data_RO` share.
 
 * In the **Available for** column, you will get a dropdown menu of Users known
   to `Nextcloud`.   Select the user account(s) that you would like to share
   this data folder -- probably the account you just created.
 
 * Finally, if you have selected a folder on a share that is *not* set up to
-  be read only, you should use the ellipses icon (`...`) and check the
-  "Read only" box.  Note that if you share a folder with read/write
-  permissions, the user will be able to move and delete data on this share
-  from their remote connection.   
+  be read only (such as the recommended `Data_RO`), you should use the
+  ellipses icon (`...`) and check the "Read only" box.  Note that if you
+  share a folder with read/write permissions, the user will be able to move
+  and delete data on this share from their remote connection.
 
 .. _staff_fig8:
 
