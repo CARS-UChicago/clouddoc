@@ -10,10 +10,10 @@ extensions = ['sphinx.ext.todo',
               'sphinx_rtd_theme',
               'sphinx.ext.mathjax']
 
-project = 'GSECARS Cloud Data'
+project = 'CARS Cloud Data'
 copyright = 'Public Domain'
 release = '0.1'
-html_title  = 'GSECARS Cloud Data'
+html_title  = 'CARS Cloud Data'
 html_short_title = 'millenia.cars.aps.anl.gov/cloud'
 
 
@@ -32,7 +32,7 @@ add_function_parentheses = True
 add_module_names = False
 
 html_static_path = ['_static']
-html_favicon = '_static/gse_logo.ico'
+html_favicon = '_static/uchicago_logo.ico'
 
 language = None
 html_theme_options = {
