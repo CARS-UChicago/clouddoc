@@ -10,12 +10,11 @@ extensions = ['sphinx.ext.todo',
               'sphinx_rtd_theme',
               'sphinx.ext.mathjax']
 
-project = 'CARS Cloud Data'
+project = html_title = 'CARS Cloud Data'
 copyright = 'Public Domain'
-release = '0.1'
-html_title  = 'CARS Cloud Data'
+author = 'Matthew Newville'
+release = '1.0'
 html_short_title = 'millenia.cars.aps.anl.gov/cloud'
-
 
 pygments_style = 'sphinx'
 html_theme = 'sphinx_rtd_theme'

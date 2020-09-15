@@ -8,7 +8,7 @@ INSTALLDIR  = ../web/templates/doc
 
 .PHONY: all html clean html install
 
-all: html
+all: html pdf
 
 html:
 	$(SPHINXBUILD) -b html $(SPHINXOPTS) $(BUILDDIR)/html
@@ -18,3 +18,13 @@ clean:
 
 install: html
 	cp -pr  $(BUILDDIR)/html/* $(INSTALLDIR)/.
+
+latex:
+	$(SPHINXBUILD) -a -b latex . $(BUILDDIR)/latex
+
+pdf: latex
+	cd $(BUILDDIR)/latex && make all-pdf
+	cp -pr $(BUILDDIR)/latex/carsclouddata.pdf $(BUILDDIR)/html/carscloud.pdf
+
+clean:
+	-rm -rf $(BUILDDIR)/*
