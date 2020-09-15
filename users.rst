@@ -6,7 +6,7 @@
 .. |settings_icon| image:: _static/settings.png
                    :height: 25px
 
-.. |uchicago_icon| image:: _static/uchicago_logo.ico
+.. |uchicago_icon| image:: _static/uchicago_logo.png
                :height: 20px
 
 .. _users_doc:
@@ -176,10 +176,10 @@ your home folder -- will be created and start to synchronize with the files
 on the CARS servers.   There will also be a Nextcloud app that you can
 access (usually from the Toolbar or from your normal File Browser) to check
 activity and refine settings such as which folders to sub-folders
-synchronize and set files to optionally ignore. 
+synchronize and set files to optionally ignore.
 
 .. Note::
-   
+
    If you have trouble downloading files larger than 500 Mb, check the
    Settings in your Nextcloud client application and make sure this
    suggested default value is not selected.
@@ -213,7 +213,7 @@ files need to be fetched, and it will look for conflicts between the
 #. If a file on the beamline data server is partially written or gets
    updated, the changed file *will* be pushed to your local computer.  Such
    an update can cause large-ish files to be sent more than once, but
-   ensures you have the latest version. 
+   ensures you have the latest version.
 
 #. If you delete a file from your local folder and it does not change on
    the server it will not be re-copied unless you explicitly ask to re-sync
